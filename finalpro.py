@@ -70,8 +70,7 @@ class ExpenseTrackerGUI:
         expense_window = tk.Toplevel(self.root)
         expense_window.title("Expenses")
 
-        self.root.configure(bg="#ADD8e6")
-
+    
         tree = ttk.Treeview(expense_window)
         tree["columns"] = ("Amount", "Category", "Description", "Date")
         tree.heading("Amount", text="Amount")
