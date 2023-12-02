@@ -1,19 +1,33 @@
-import json
-import os
-from datetime import datetime
 import tkinter as tk
 from tkinter import ttk
+from datetime import datetime
+import json
+import os
+
+class HomePage:
+    def __init__(self, master, on_get_started_callback):
+        window_width = 600
+        window_height = 400
+        master.geometry(f"{window_width}x{window_height}")
+        self.master = master
+        self.master.title("Home Page")
+        self.master.configure(bg="#ADD8e6")
+
+        self.label = ttk.Label(master, text="Welcome to the Expense Tracker", font=('Helvetica', 14))
+        self.label.pack(pady=15)
+
+
+        self.get_started_button = ttk.Button(master, text="Click Me ><", command=on_get_started_callback)
+        self.get_started_button.pack(pady=10)
 
 class ExpenseTrackerGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Expense Tracker")
-        #set the background color
         self.root.configure(bg="#ADD8e6")
 
         self.expenses = []
         self.load_data()
-
 
         self.amount_label = ttk.Label(root, text="Amount:")
         self.amount_entry = ttk.Entry(root)
@@ -70,7 +84,8 @@ class ExpenseTrackerGUI:
         expense_window = tk.Toplevel(self.root)
         expense_window.title("Expenses")
 
-    
+        self.root.configure(bg="#ADD8e6")
+
         tree = ttk.Treeview(expense_window)
         tree["columns"] = ("Amount", "Category", "Description", "Date")
         tree.heading("Amount", text="Amount")
@@ -85,7 +100,16 @@ class ExpenseTrackerGUI:
 
         tree.pack()
 
+def on_get_started_callback():
+    root.withdraw()  # Hide the home page
+    expense_tracker_root = tk.Tk()
+    expense_tracker_root.protocol("WM_DELETE_WINDOW", on_expense_tracker_close)
+    expense_tracker = ExpenseTrackerGUI(expense_tracker_root)
+
+def on_expense_tracker_close():
+    root.destroy()  # Close the entire application when the Expense Tracker window is closed
+
 if __name__ == "__main__":
     root = tk.Tk()
-    app = ExpenseTrackerGUI(root)
+    home_page = HomePage(root, on_get_started_callback)
     root.mainloop()
