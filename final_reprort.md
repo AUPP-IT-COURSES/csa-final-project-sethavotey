@@ -76,7 +76,7 @@ The JSON file ensures data persistence across different sessions.
 
 *Conclusion and Future Developement:
 
-In conclusion, the Expense Tracker project provides a solutions for people who needs to manage their expense more efficiently.
+In conclusion, the Expense Tracker project provides a solution for people who needs to manage their expense more efficiently.
 Future developement could include more features such as:
 
 -Editing: Allowing user to edit their expenses.
