@@ -107,7 +107,8 @@ def on_get_started_callback():
     expense_tracker = ExpenseTrackerGUI(expense_tracker_root)
 
 def on_expense_tracker_close():
-    root.destroy()  # Close the entire application when the Expense Tracker window is closed
+        if root.winfo_exists():
+         root.quit()  # Quit the Tkinter application loop when the Expense Tracker window is closed
 
 if __name__ == "__main__":
     root = tk.Tk()
