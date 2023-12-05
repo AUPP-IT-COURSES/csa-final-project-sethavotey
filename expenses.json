@@ -1,0 +1,20 @@
+[
+  {
+    "amount": 5.0,
+    "category": "clothes",
+    "description": "none",
+    "date": "2023-12-01 09:51:03"
+  },
+  {
+    "amount": 5.0,
+    "category": "clothes",
+    "description": "none",
+    "date": "2023-12-04 11:30:42"
+  },
+  {
+    "amount": 8.0,
+    "category": "beauty",
+    "description": "sister",
+    "date": "2023-12-04 22:24:36"
+  }
+]
